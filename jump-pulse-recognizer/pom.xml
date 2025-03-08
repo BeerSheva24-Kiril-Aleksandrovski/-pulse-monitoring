@@ -48,6 +48,11 @@
             <artifactId>middleware-data-streams</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>telran.monitoring</groupId>
+            <artifactId>last-values-saver-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

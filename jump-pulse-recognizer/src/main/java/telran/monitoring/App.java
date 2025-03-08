@@ -16,7 +16,6 @@ public class App {
     public void handleRequest(final DynamodbEvent event, final Context context) {
         event.getRecords().forEach(r -> {
             Map<String, AttributeValue> map = r.getDynamodb().getNewImage();
-
             long patientId = Long.parseLong(map.get("patientId").getN());
             int value = Integer.parseInt(map.get("value").getN());
             long timestamp = Long.parseLong(map.get("timestamp").getN());
