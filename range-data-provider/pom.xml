@@ -5,48 +5,39 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>telran.monitoring</groupId>
-    <artifactId>abnormal-values-recognizer</artifactId>
+    <artifactId>range-data-provider</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-core</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-events</artifactId>
             <version>3.11.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20240303</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
         </dependency>
-        <!--
- 		https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb -->
-        <!-- https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb -->
-
         <dependency>
             <groupId>telran.monitoring</groupId>
             <artifactId>pulse-monitoring-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>telran.monitoring</groupId>
-            <artifactId>middleware-data-streams-impl</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>telran.monitoring</groupId>
-            <artifactId>last-values-saver-impl</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
         </dependency>
     </dependencies>
 
