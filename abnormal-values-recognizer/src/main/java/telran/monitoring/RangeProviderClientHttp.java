@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.http.*;
 import java.net.http.HttpResponse.BodyHandlers;
 
+import javax.management.RuntimeErrorException;
+
 import telran.monitoring.api.Range;
 import telran.monitoring.logging.Logger;
 
@@ -28,18 +30,17 @@ public class RangeProviderClientHttp extends AbstractRangeProviderClient {
     @Override
     public Range getRange(long patientId) {
         HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(getURI(patientId))).build();
-        Range range = null;
         try {
             HttpResponse<String> response = httpClient.send(request, BodyHandlers.ofString());
             if (response.statusCode() > 399) {
                 throw new Exception(response.body());
             }
-            range = Range.getRangeFromJSON(response.body());
+            Range range = Range.getRangeFromJSON(response.body());
             logger.log("fine", "Range received from Range Provider API service is " + range);
+            return range;
         } catch (Exception e) {
-            logger.log("severe", "error - " + e);
+            throw new RuntimeException(e);
         }
-        return range;
     }
 
     private String getURI(long patientId) {
